@@ -1,0 +1,9 @@
+<h1>My watchlist</h1>
+<ul>
+<% @lists.each do |list| %>
+  <li class="list-unstyled"><%= link_to list.name, list_path(list), class: "text-decoration-none" %></li>
+<%end%>
+</ul>
+
+<%= link_to "Create a movie list", new_list_path%>
+<%# <%= link_to "Bookmarks", new_bookmark_index_path %>
