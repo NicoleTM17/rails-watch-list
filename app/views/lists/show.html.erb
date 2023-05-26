@@ -2,10 +2,9 @@
 
 <h3>Movie</h3>
 <ul class="list-group">
-  <% @list.movies.each do |movie| %>
-    <% @bookmark = Bookmark.find_by(movie: movie, list: @list) %>
-    <li class="list-group-item w-50"> <strong>Movie:</strong> <%=movie.title%> <div><strong>Overview:</strong> <%=movie.overview%></div><%=movie.poster_url%> <div><strong>Rating:</strong> <%=movie.rating%></div>
-   <div><%= link_to "Delete", bookmark_path(@bookmark), class:"text-decoration-none", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div> </li>
+  <% @list.bookmarks.each do |bookmark| %>
+    <li class="list-group-item w-50"> <strong>Movie:</strong> <%=bookmark.movie.title%> <div><strong>Overview:</strong> <%=bookmark.movie.overview%></div><%=bookmark.movie.poster_url%> <div><strong>Rating:</strong> <%=bookmark.movie.rating%></div>
+   <div><%= link_to "Delete", bookmark_path(bookmark), class:"text-decoration-none", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div> </li>
   <% end %>
 </ul>
 
